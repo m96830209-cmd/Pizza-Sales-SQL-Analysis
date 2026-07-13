@@ -44,11 +44,11 @@ SELECT COUNT(*) FROM order_details;
 -- STEP 3: CORE ASSIGNMENT TASKS
 -- ==========================================
 
--- Task 1: Retrieve the total number of orders placed
+-- 1: Retrieve the total number of orders placed
 SELECT COUNT(order_id) AS total_orders
 FROM orders;
 
--- Task 2: Calculate the total revenue generated from pizza sales
+-- 2: Calculate the total revenue generated from pizza sales
 SELECT
     ROUND(SUM(order_details.quantity * CAST(pizzas.price AS DECIMAL(10,2))) , 2) AS total_revenue
 FROM order_details
@@ -87,13 +87,13 @@ SELECT
 FROM order_details
 JOIN pizzas ON order_details.pizza_id = pizzas.pizza_id;
 
--- 3) Identify the highest-priced pizza.
+-- 6  Identify the highest-priced pizza.
 SELECT pizza_id, CAST(price AS DECIMAL(10,2)) AS highest_price
 FROM pizzas
 ORDER BY highest_price DESC
 LIMIT 1;
 
--- 4) Identify the most common pizza size ordered.
+-- 7 Identify the most common pizza size ordered.
 SELECT pizzas.size, SUM(order_details.quantity) AS total_ordered
 FROM order_details
 JOIN pizzas ON order_details.pizza_id = pizzas.pizza_id
